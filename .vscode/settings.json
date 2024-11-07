@@ -1,0 +1,47 @@
+{
+    // These settings tweaks to the cmake plugin will ensure
+    // that you debug using cortex-debug instead of trying to launch
+    // a Pico binary on the host
+    
+    "cmake.buildBeforeRun": true,
+    "cmake.configureOnOpen": true,
+    "cmake.ctest.allowParallelJobs": true,
+    "cmake.parallelJobs": 8,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+
+
+    // actions task buttons
+    "actionButtons": {
+		 "defaultColor": "#ff0034", // Can also use string color names.
+		 "loadNpmCommands":false, // Disables automatic generation of actions for npm commands.
+		 "reloadButton":"", // Custom reload button text or icon (default ↻). null value enables automatic reload on configuration change
+		 "commands": [
+			 {
+				"name": "$(rocket) ",
+				"color": "white",
+				"useVsCodeApi": true,
+				"command": "workbench.action.tasks.runTask",
+				"args": ["Flash"]
+		     }
+		 ]
+	 },
+
+     // CMake Tools Status Bar Configuration
+     "cmake.statusbar.advanced": {
+         "debug": {
+             "visibility": "hidden"
+         },
+         "launch": {
+             "visibility": "visible"
+         },
+         "build": {
+             "visibility": "hidden"
+         },
+         "buildTarget": {
+             "visibility": "hidden"
+         }
+}
+
+     
+}
+
