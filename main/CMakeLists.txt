@@ -1,7 +1,23 @@
-add_executable(main
+add_executable(pico_emb
+        hid_IMU_mouse.c
         main.c
 )
 
+set_target_properties(pico_emb PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
-target_link_libraries(main pico_stdlib freertos mpu6050)
-pico_add_extra_outputs(main)
+# Link the Project to extra libraries
+target_link_libraries(${PROJECT_NAME} PRIVATE
+  mpu6050
+  pico_stdlib
+  hardware_i2c
+  pico_btstack_classic
+  pico_btstack_cyw43
+  pico_cyw43_arch_none
+)
+
+# Including header files directly from project directory
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_LIST_DIR}
+)
+
+pico_add_extra_outputs(pico_emb)
