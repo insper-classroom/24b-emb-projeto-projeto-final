@@ -19,7 +19,7 @@ int main() {
         return -1;
     }
 
-    // run the app
+    // run the app 
     btstack_main(0, NULL);
     btstack_run_loop_execute();
 
